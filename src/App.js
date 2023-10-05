@@ -1,52 +1,41 @@
 /* eslint-disable no-unused-expressions */
-import logo from './logo.svg';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import './App.css';
+import Autocomplete from './components/Autocomplete/autocomplete';
 
 function App() {
 
-  async function getDrinks() {
-    const apiCallDrinks = await fetch('http://localhost:3000/drinks')
-    const data = await apiCallDrinks.json();
+  // async function getDrinks() {
+  //   const apiCallDrinks = await fetch('http://localhost:3000/drinks')
+  //   const data = await apiCallDrinks.json();
 
-    const dataAfterTranslation =  data.drinksList.map(drink => {
-      const arrDrinkComposition = JSON.parse(drink.composition);
-      const arrDrinkRecipe = JSON.parse(drink.recipe);
-      drink.composition = arrDrinkComposition;
-      drink.recipe = arrDrinkRecipe;
-      return drink;
-    })
+  //   const dataAfterTranslation =  data.drinksList.map(drink => {
+  //     const arrDrinkComposition = JSON.parse(drink.composition);
+  //     const arrDrinkRecipe = JSON.parse(drink.recipe);
+  //     drink.composition = arrDrinkComposition;
+  //     drink.recipe = arrDrinkRecipe;
+  //     return drink;
+  //   })
 
-    console.log('111', dataAfterTranslation);
-  }
+  //   console.log('111', dataAfterTranslation);
+  // }
 
-  async function getIngredients() {
-    const apiCallDrinks = await fetch('http://localhost:3000/ingredients')
-    const data = await apiCallDrinks.json();
+  // async function getIngredients() {
+  //   const apiCallDrinks = await fetch('http://localhost:3000/ingredients')
+  //   const data = await apiCallDrinks.json();
 
-    const dataAfterTranslation =  data.ingredientsList;
+  //   const dataAfterTranslation =  data.ingredientsList;
 
-    console.log('222', dataAfterTranslation);
-  }
+  //   console.log('222', dataAfterTranslation);
+  // }
 
-  getDrinks();
-  getIngredients();
+  // getDrinks();
+  // getIngredients();
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container my-4">
+      <Autocomplete></Autocomplete>
     </div>
   );
 }
