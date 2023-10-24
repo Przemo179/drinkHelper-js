@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import '../../styles/autocomplete.scss';
 
 function Autocomplete ({ ingredients, addIngredient, ingredientsDatabase}) {
-  console.log(ingredientsDatabase);
   const [customData, setCustomData] = useState(ingredientsDatabase);
   const [successMsgContent, setSuccessMsgContent] = useState('');
 
@@ -20,6 +19,9 @@ function Autocomplete ({ ingredients, addIngredient, ingredientsDatabase}) {
       });
       setSuccessMsgContent(`You just added a <span class="fw-bold">${customData[0].label}</span> to your ingredients list`);
       document.querySelector('.alert-success').classList.remove('d-none');
+      setTimeout(() => {
+        document.querySelector('.alert-success').classList.add('d-none');
+      }, 3000);
       document.querySelector('.autocomplete-input').value = '';
     } else {
       document.querySelector('.alert-danger').classList.remove('d-none');

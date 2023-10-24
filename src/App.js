@@ -3,6 +3,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import './App.css';
 import Autocomplete from './components/Autocomplete/autocomplete';
+import IngredientTable from './components/Tables/ingredientTable';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
   return (
     <div className="container my-4">
       <Autocomplete></Autocomplete>
+      <IngredientTable></IngredientTable>
     </div>
   );
 }
